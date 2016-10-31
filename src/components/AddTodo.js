@@ -1,25 +1,37 @@
 import React from 'react';
 
+import * as TodoActions from '../actions/TodoActions';
 
-let element = (
-    <div className="weui-cells weui-cells_form">
-        <div className="weui-cell weui-cell_vcode">
-            <div className="weui-cell__hd">
-                <label className="weui-label">Add a todo:</label>
-            </div>
-            <div className="weui-cell__bd">
-                <input className="weui-input" type="tel" placeholder="new todo" />
-            </div>
-            <div className="weui-cell__ft">
-                <a href="javascript:;" className="weui-btn weui-btn_mini weui-btn_primary">Add</a>
-            </div>
-        </div>
-    </div>
-);
+
+
 
 export default class AddTodo extends React.Component{
 
+
+    constructor(){
+        super();
+    }
+
+    createTodo(){
+        TodoActions.createTodo(Date.now());
+    }
+
     render(){
+        const element = (
+            <div className="weui-cells weui-cells_form">
+                <div className="weui-cell weui-cell_vcode">
+                    <div className="weui-cell__hd">
+                        <label className="weui-label">Add a todo:</label>
+                    </div>
+                    <div className="weui-cell__bd">
+                        <input className="weui-input" type="text" placeholder="new todo" />
+                    </div>
+                    <div className="weui-cell__ft">
+                        <a className="weui-btn weui-btn_mini weui-btn_primary" onClick={this.createTodo.bind(this)}>Add</a>
+                    </div>
+                </div>
+            </div>
+        );
         return element;
     }
 
