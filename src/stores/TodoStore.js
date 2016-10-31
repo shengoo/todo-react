@@ -59,6 +59,8 @@ class TodoStore extends EventEmitter{
                 this.deleteTodo(action.id);
                 break;
             }
+            default:
+                break;
         }
     }
 
