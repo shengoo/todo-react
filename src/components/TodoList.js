@@ -31,8 +31,8 @@ export default class TodoList extends React.Component {
     render() {
 
         const{todos} = this.state;
-        const TodoComponents = todos.map((todo,i) =>{
-           return <Todo key={i} {...todo}/>;
+        const TodoComponents = todos.map((todo) =>{
+           return <Todo key={todo.id} {...todo}/>;
         });
 
         return (

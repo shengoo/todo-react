@@ -4,6 +4,17 @@ import * as TodoActions from '../actions/TodoActions';
 
 export default class Todo extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {done:this.props.done};
+        this.statusChanged = this.statusChanged.bind(this);
+    }
+
+    statusChanged(event){
+        const done = event.target.checked;
+        this.setState({done});
+    }
+
     deleteTodo(){
         // console.log(this.props)
         const {id} = this.props;
@@ -13,14 +24,17 @@ export default class Todo extends React.Component {
 
     render() {
 
-        const {title,done} = this.props;
+        const {title} = this.props;
+        const {done} = this.state;
 
         // console.log(this.props);
 
         return (
             <div className="weui-cell weui-check__label">
                 <label className="weui-cell__hd">
-                    <input type="checkbox" className="weui-check"/>
+                    <input type="checkbox" className="weui-check"
+                            checked={done}
+                    onChange={this.statusChanged}/>
                     <i className="weui-icon-checked"></i>
                 </label>
 
