@@ -18,23 +18,31 @@ function getListTemplate(list) {
     return list.map(formatTodo);
 }
 function formatTodo(todo) {
-    return <li className="list-group-item row">
-      <div className="col-xs-2">
-        <input type="checkbox" aria-label="..." />
-      </div>
-      <div className='col-xs-8'>{todo.title}</div>
-      <div className="col-xs-2">
-          <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      </div>
-    </li>;
+    return (
+        <div className="weui-cell weui-check__label">
+            <label className="weui-cell__hd">
+                <input type="checkbox" className="weui-check"/>
+                <i className="weui-icon-checked"></i>
+            </label>
+
+            <div className="weui-cell__bd">
+                <p>{todo.title}</p>
+            </div>
+
+            <div className="weui-cell__ft">
+                x
+            </div>
+        </div>);
 }
 
-export default class TodoList extends React.Component{
+export default class TodoList extends React.Component {
 
-    render(){
-        return <ul className="list-group">
-          {getListTemplate(todoList)}
-        </ul>
+    render() {
+        return (
+            <div className="weui-cells weui-cells_checkbox">
+                {getListTemplate(todoList)}
+            </div>
+        )
     }
 
 }

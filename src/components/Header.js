@@ -4,10 +4,13 @@
 
 import React from 'react';
 
-export default class Header extends React.Component{
+export default class Header extends React.Component {
 
-    render(){
-        return <div>Todos</div>
+    render() {
+        return (
+            <div className="page__hd">
+                <h1 className="page__title">Todos</h1>
+            </div>)
     }
 
 }
