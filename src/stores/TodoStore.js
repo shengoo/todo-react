@@ -10,12 +10,15 @@ class TodoStore extends EventEmitter{
 
         this.todos = [
             {
+                id:1,
                 title: 'one',
                 done: false
             }, {
+                id:2,
                 title: 'a todo item',
                 done: false
             }, {
+                id:3,
                 title: '2 done item',
                 done: true
             }
@@ -38,7 +41,11 @@ class TodoStore extends EventEmitter{
     }
 
     deleteTodo(id){
-        var index = this.todos.findIndex(todo=>{return todo.id === id});
+        var index = this.todos.findIndex(todo=>{
+
+            console.log(id,todo.id,todo.id === id)
+            return todo.id === id});
+        console.log(index)
         if(index > -1){
             this.todos.splice(index,1);
             this.emit('change');
